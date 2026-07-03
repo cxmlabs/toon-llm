@@ -29,15 +29,19 @@ classifiers = [
 ]
 dependencies = [
   "better-exceptions>=0.3.3",
-  "coverage>=7.11.0",
   "pydantic>=2.12.3",
+  "typer>=0.15.0",
+]
+
+[dependency-groups]
+dev = [
+  "coverage>=7.11.0",
   "pyright>=1.1.407",
   "pytest>=8.4.2",
   "pytest-cov>=6.0.0",
   "ruff>=0.14.2",
   "tox>=4.32.0",
   "tox-uv>=1.29.0",
-  "typer>=0.15.0",
 ]
 
 [project.scripts]
