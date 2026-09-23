@@ -1,0 +1,31 @@
+# CODEOWNERS
+#
+# This repository is a fork of davidpirogov/toon-llm, and `cxmlabs/koomo`
+# consumes it as a pinned production dependency. A change that lands here can
+# reach the application the moment somebody moves that pin, so main carries the
+# same review requirement as the application repositories.
+#
+# Available GitHub teams:
+#   @cxmlabs/engineering      — all engineers
+#   @cxmlabs/sre              — SRE
+#
+# Rules are matched bottom-up — the last matching rule wins.
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Default — all engineers
+# ──────────────────────────────────────────────────────────────────────────────
+*                    @cxmlabs/engineering
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Packaging — SRE.
+#
+# These files decide what actually ships into the application: the dependency
+# set, the resolved versions, and the CI that builds them. A git dependency is
+# fetched by commit SHA and never passes through the PyPI index, so it is not
+# covered by the 7-day package quarantine that `koomo` applies to indexed
+# packages. Review here is the compensating control.
+# ──────────────────────────────────────────────────────────────────────────────
+pyproject.toml       @cxmlabs/sre
+uv.lock              @cxmlabs/sre
+tox.ini              @cxmlabs/sre
+.github/             @cxmlabs/sre
